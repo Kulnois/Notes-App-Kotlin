@@ -4,4 +4,5 @@
     <dimen name="title_edit_text_size">24sp</dimen>
     <dimen name="content_edit_text_size">18sp</dimen>
     <dimen name="radius_edit_text">15dp</dimen>
+    <dimen name="nested_scroll_padding_bottom">100dp</dimen>
 </resources>
