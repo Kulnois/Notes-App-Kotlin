@@ -1,11 +1,37 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorBlack</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="TitleEditText">
+        <item name="android:background">@drawable/edit_text_editor</item>
+        <item name="android:textSize">@dimen/title_edit_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:hint">@string/hint_title_edit_text</item>
+        <item name="android:textColorHint">@color/colorBackgroundHintEditText</item>
+        <item name="android:paddingLeft">8dp</item>
+    </style>
+
+    <style name="ContentEditText">
+        <item name="android:background">@drawable/edit_text_editor</item>
+        <item name="android:textSize">@dimen/content_edit_text_size</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:hint">@string/hint_content_edit_text</item>
+        <item name="android:textColorHint">@color/colorBackgroundHintEditText</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:lines">15</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:gravity">start|top</item>
     </style>
 
 </resources>

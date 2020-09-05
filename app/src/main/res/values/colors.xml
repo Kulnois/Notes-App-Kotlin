@@ -6,4 +6,7 @@
 
     <color name="colorBlack">#000</color>
     <color name="colorWhite">#fff</color>
+    <color name="colorBackgroundEditText">#1f1f1f</color>
+
+    <color name="colorBackgroundHintEditText">#D1D1D1</color>
 </resources>

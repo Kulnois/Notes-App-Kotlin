@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Notes App</string>
+    <string name="item_date_tools_text">Hoy 12:34 PM</string>
+    <string name="hint_title_edit_text">Título</string>
+    <string name="hint_content_edit_text">Nota</string>
 </resources>
