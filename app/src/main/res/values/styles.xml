@@ -34,4 +34,18 @@
         <item name="android:gravity">start|top</item>
     </style>
 
+    <style name="TitleItem">
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:typeface">normal</item>
+    </style>
+
+    <style name="ContentItem">
+        <item name="android:textSize">@dimen/content_text_size</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">@color/colorContentText</item>
+    </style>
+
 </resources>

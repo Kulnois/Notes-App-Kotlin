@@ -9,4 +9,5 @@
     <color name="colorBackgroundEditText">#1f1f1f</color>
 
     <color name="colorBackgroundHintEditText">#D1D1D1</color>
+    <color name="colorContentText">#A3A3A3</color>
 </resources>
