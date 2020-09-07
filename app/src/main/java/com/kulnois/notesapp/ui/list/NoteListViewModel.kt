@@ -1,5 +1,7 @@
 package com.kulnois.notesapp.ui.list
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 /**
@@ -7,5 +9,18 @@ import androidx.lifecycle.ViewModel
  */
 
 class NoteListViewModel : ViewModel() {
+
+    private val _navigateToEditor = MutableLiveData<Boolean>()
+    val navigateToEditor: LiveData<Boolean>
+        get() = _navigateToEditor
+
+    fun navigateToEditor() {
+        _navigateToEditor.value = true
+    }
+
+    fun navigateToEditorDone() {
+        _navigateToEditor.value = false
+    }
+
 
 }

@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.kulnois.notesapp.ui.list.NoteListViewModel" />
+    </data>
+
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -63,6 +69,7 @@
             app:backgroundTint="@color/colorAccent"
             app:srcCompat="@drawable/ic_add_24"
             app:layout_anchor="@id/bottomAppBar"
+            android:onClick="@{() -> viewModel.navigateToEditor()}"
             />
 
 
