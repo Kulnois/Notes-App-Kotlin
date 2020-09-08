@@ -15,7 +15,6 @@ import com.kulnois.notesapp.database.NoteDatabase
 import com.kulnois.notesapp.database.NoteDatabaseDao
 import com.kulnois.notesapp.databinding.FragmentListNoteBinding
 import com.kulnois.notesapp.repository.NoteRepository
-import kotlinx.android.synthetic.main.fragment_list_note.*
 
 /**
  * Created by @kulnois on 5/09/2020.
@@ -54,8 +53,7 @@ class NoteListFragment : Fragment() {
         initObservers()
 
         adapter = NoteAdapter(NoteAdapter.OnClickListener {
-            println(it.title)
-            viewModel.displayPropertyEdit(it)
+            viewModel.onNoteClicked(it.noteId)
         })
 
         binding.itemGrid.adapter = adapter
@@ -67,7 +65,6 @@ class NoteListFragment : Fragment() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 adapter.filter?.filter(newText)
-                binding.itemGrid.adapter = adapter
                 return true
             }
 
@@ -78,8 +75,16 @@ class NoteListFragment : Fragment() {
         viewModel.navigateToEditor.observe(viewLifecycleOwner, Observer {
             if (it) {
                 this.findNavController().navigate(NoteListFragmentDirections
-                    .actionNoteListFragmentToNoteEditorFragment())
+                    .actionNoteListFragmentToNoteEditorFragment(0L))
                 viewModel.navigateToEditorDone()
+            }
+        })
+
+        viewModel.navigateToNoteDetail.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                this.findNavController().navigate(NoteListFragmentDirections
+                    .actionNoteListFragmentToNoteEditorFragment(it))
+                viewModel.onNoteNavigated()
             }
         })
     }

@@ -41,15 +41,13 @@
             android:paddingBottom="@dimen/nested_scroll_padding_bottom"
             >
 
-
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/item_grid"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:padding="6dp"
                 android:clipToPadding="false"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
                 tools:itemCount="16"
                 app:spanCount="2"
                 app:listData="@{viewModel.properties}"

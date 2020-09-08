@@ -19,6 +19,7 @@
         <item name="android:hint">@string/hint_title_edit_text</item>
         <item name="android:textColorHint">@color/colorBackgroundHintEditText</item>
         <item name="android:padding">8dp</item>
+        <item name="android:inputType">textCapWords|textCapSentences</item>
     </style>
 
     <style name="ContentEditText">

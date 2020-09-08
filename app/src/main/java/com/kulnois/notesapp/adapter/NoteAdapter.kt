@@ -70,10 +70,10 @@ class NoteAdapter (private val onClickListener: OnClickListener): ListAdapter<No
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(charSequence: CharSequence): FilterResults {
-                filtered = false
                 val charString = charSequence.toString()
                 filteredNotes = if (charString.isEmpty()) notes
                 else {
+                    filtered = false
                     notes.filter {
                         it.title.contains(charString, true) || it.content.contains(charString, true)
                     }

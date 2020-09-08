@@ -10,4 +10,8 @@
     <string name="content_description_save">Boton para guardar la nota</string>
     <string name="data_required">Por favor ingresar titulo y contenido</string>
     <string name="list_message_notes">Las notas que agregues aparecerán aqui.</string>
+    <string name="title_delete_note_message">Eliminar Nota</string>
+    <string name="content_delete_note_message">¿Está seguro de que desea eliminar esta nota?</string>
+    <string name="cancel">No</string>
+    <string name="accept">Sí</string>
 </resources>

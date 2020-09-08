@@ -1,8 +1,6 @@
 package com.kulnois.notesapp.ui.editor
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.kulnois.notesapp.model.Note
 import com.kulnois.notesapp.repository.NoteRepository
 import kotlinx.coroutines.CoroutineScope
@@ -15,17 +13,28 @@ import java.text.SimpleDateFormat
  * Created by @kulnois on 5/09/2020.
  */
 
-class NoteEditorViewModel (private val notesRepository: NoteRepository) : ViewModel() {
+class NoteEditorViewModel (private val notesRepository: NoteRepository,
+                           private val noteKey: Long,) : ViewModel() {
 
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    val dateString = getDateString()
+    private val note = MediatorLiveData<Note>()
 
+    fun getNote() = note
 
     private val _navigateToList = MutableLiveData<Boolean>()
     val navigateToList: LiveData<Boolean>
         get() = _navigateToList
+
+    var isEdit: LiveData<Boolean> = Transformations.map(note) {
+        null != it
+    }
+
+    init {
+        println(noteKey)
+        note.addSource(notesRepository.getNote(noteKey), note::setValue)
+    }
 
     fun saveNote(note: Note) {
         uiScope.launch {
@@ -34,9 +43,18 @@ class NoteEditorViewModel (private val notesRepository: NoteRepository) : ViewMo
         }
     }
 
-    @JvmName("getDateString1")
-    private fun getDateString(): String {
-        return "Hoy " + SimpleDateFormat("hh:mm a").format(System.currentTimeMillis()).toString()
+    fun deleteNote(note: Note) {
+        uiScope.launch {
+            notesRepository.deleteNote(note)
+            navigateToList()
+        }
+    }
+
+    fun updateNote(note: Note) {
+        uiScope.launch {
+            notesRepository.updateNote(note)
+            navigateToList()
+        }
     }
 
     private fun navigateToList() {

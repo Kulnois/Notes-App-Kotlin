@@ -14,5 +14,7 @@ interface Repository {
 
     fun getNotes(): LiveData<List<Note>>
 
-    fun getNote(): LiveData<Note?>
+    fun getNote(key: Long): LiveData<Note>
+
+    suspend fun deleteNote(note: Note)
 }

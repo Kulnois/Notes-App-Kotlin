@@ -1,10 +1,7 @@
 package com.kulnois.notesapp.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.kulnois.notesapp.model.Note
 
 /**
@@ -23,10 +20,16 @@ interface NoteDatabaseDao {
     @Query("SELECT * FROM note_table ORDER BY noteId DESC")
     fun getAllNotes(): LiveData<List<Note>>
 
+    @Query("SELECT * FROM note_table WHERE noteId = :key") // Consultar un valor por ID
+    fun get(key: Long): Note
+
     @Query("SELECT * FROM note_table WHERE noteId = :key")
     fun getNoteWithId(key: Long): LiveData<Note>
 
     @Query("SELECT * FROM note_table ORDER BY noteId DESC LIMIT 1")
     fun getToNote(): Note?
+
+    @Delete
+    fun delete(note: Note)
 
 }

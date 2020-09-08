@@ -24,20 +24,18 @@ class NoteListViewModel (private val noteRepository: NoteRepository) : ViewModel
     val properties: LiveData<List<Note>>
         get() = _notesList
 
-    private val _navigateToSelectedProperty = MutableLiveData<Note>()
-
-    val navigateToSelectedProperty: LiveData<Note>
-        get() = _navigateToSelectedProperty
-
     private val _navigateToEditor = MutableLiveData<Boolean>()
     val navigateToEditor: LiveData<Boolean>
         get() = _navigateToEditor
+
+    private val _navigateToNoteDetail = MutableLiveData<Long>()
+    val navigateToNoteDetail
+        get() = _navigateToNoteDetail
 
 
     val isEmpty: LiveData<Boolean> = Transformations.map(properties) {
         it.isEmpty()
     }
-
 
     fun navigateToEditor() {
         _navigateToEditor.value = true
@@ -47,12 +45,12 @@ class NoteListViewModel (private val noteRepository: NoteRepository) : ViewModel
         _navigateToEditor.value = false
     }
 
-    fun displayPropertyEdit(note: Note) {
-        _navigateToSelectedProperty.value = note
+    fun onNoteClicked(id: Long) {
+        _navigateToNoteDetail.value = id
     }
 
-    fun displayPropertyEditComplete() {
-        _navigateToSelectedProperty.value = null
+    fun onNoteNavigated() {
+        _navigateToNoteDetail.value = null
     }
 
 

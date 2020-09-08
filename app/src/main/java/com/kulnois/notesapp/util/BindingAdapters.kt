@@ -26,7 +26,12 @@ fun TextView.setFormattedDate(date: Long) {
 
 @BindingAdapter("setFormattedDateAdd")
 fun TextView.setFormattedDateAdd(date: Long) {
-    text = "Hoy " + SimpleDateFormat("hh:mm a").format(System.currentTimeMillis()).toString()
+    println(date)
+    text = if (date == 0L) {
+        "Creado, Hoy " + SimpleDateFormat("hh:mm a").format(System.currentTimeMillis()).toString()
+    } else {
+        "Modificado, Hoy " + SimpleDateFormat("hh:mm a").format(System.currentTimeMillis()).toString()
+    }
 }
 
 @BindingAdapter("isVisible")

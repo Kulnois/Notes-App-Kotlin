@@ -5,8 +5,8 @@
     
     <data>
         <variable
-            name="note"
-            type="com.kulnois.notesapp.model.Note" />
+            name="viewModel"
+            type="com.kulnois.notesapp.ui.editor.NoteEditorViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,14 +44,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/deleteNoteButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/layout_margin_default"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_editor"
+            android:clickable="true"
+            android:focusable="true"
+            isVisible="@{viewModel.isEdit()}"
+            android:padding="@dimen/padding_button_editor"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintEnd_toStartOf="@+id/saveNoteBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/dateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="@dimen/layout_margin_default"
-            android:text="@{Long.toString(note.updatedAt)}"
-            app:setFormattedDateAdd="@{note.updatedAt}"
+            android:text="@{Long.toString(viewModel.note.updatedAt)}"
+            app:setFormattedDateAdd="@{viewModel.note.updatedAt}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/navigationUp"
             tools:text="@string/item_date_tools_text" />
@@ -64,7 +79,7 @@
             android:layout_marginStart="@dimen/layout_margin_default"
             android:layout_marginTop="@dimen/layout_margin_default"
             android:layout_marginEnd="@dimen/layout_margin_default"
-            android:text="@{note.title}"
+            android:text="@{viewModel.note.title}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dateText" />
@@ -88,8 +103,8 @@
                 style="@style/ContentEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@{note.content}"
-                android:lines="20"
+                android:text="@{viewModel.note.content}"
+                android:lines="15"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dateText" />
