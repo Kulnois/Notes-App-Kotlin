@@ -65,6 +65,8 @@ class NoteEditorFragment : Fragment() {
             if (titleEditText.text?.trim()?.isEmpty()!! || titleEditText.text?.trim()?.isEmpty()!!) {
                 Snackbar.make(noteEditorLayout, getString(R.string.data_required), Snackbar.LENGTH_SHORT).show()
             } else {
+                note.title = titleEditText.text.toString()
+                note.content = contentEditText.text.toString()
                 viewModel.saveNote(note)
             }
         }

@@ -48,4 +48,10 @@
         <item name="android:textColor">@color/colorContentText</item>
     </style>
 
+    <style name="DateItem">
+        <item name="android:textSize">@dimen/date_text_size</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/colorContentText</item>
+    </style>
+
 </resources>

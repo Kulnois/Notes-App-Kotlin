@@ -49,6 +49,8 @@
                 android:clipToPadding="false"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 tools:itemCount="16"
+                app:spanCount="2"
+                app:listData="@{viewModel.properties}"
                 tools:listitem="@layout/item_note"
                 />
 

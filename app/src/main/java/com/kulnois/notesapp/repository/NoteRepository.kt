@@ -23,7 +23,7 @@ class NoteRepository(
         TODO("Not yet implemented")
     }
 
-    override suspend fun getNotes(): LiveData<List<Note>> {
+    override fun getNotes(): LiveData<List<Note>> {
         return noteDatabaseDao.getAllNotes()
     }
 

@@ -12,7 +12,7 @@ interface Repository {
 
     suspend fun updateNote(note: Note)
 
-    suspend fun getNotes(): LiveData<List<Note>>
+    fun getNotes(): LiveData<List<Note>>
 
     fun getNote(): LiveData<Note?>
 }
