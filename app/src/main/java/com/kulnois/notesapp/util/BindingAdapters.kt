@@ -1,6 +1,8 @@
 package com.kulnois.notesapp.util
 
+import android.view.View
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.kulnois.notesapp.adapter.NoteAdapter
@@ -20,4 +22,14 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: MutableList<Note>?) {
 @BindingAdapter("setFormattedDate")
 fun TextView.setFormattedDate(date: Long) {
     text = SimpleDateFormat("MM-dd hh:mm a").format(date).toString()
+}
+
+@BindingAdapter("setFormattedDateAdd")
+fun TextView.setFormattedDateAdd(date: Long) {
+    text = "Hoy " + SimpleDateFormat("hh:mm a").format(System.currentTimeMillis()).toString()
+}
+
+@BindingAdapter("isVisible")
+fun View.isVisible(bool: Boolean) {
+    this.isVisible = bool
 }

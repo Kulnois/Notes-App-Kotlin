@@ -54,4 +54,10 @@
         <item name="android:textColor">@color/colorContentText</item>
     </style>
 
+    <style name="MessageList">
+        <item name="android:textSize">@dimen/message_list_text_size</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/colorContentText</item>
+    </style>
+
 </resources>

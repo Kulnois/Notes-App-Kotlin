@@ -2,6 +2,7 @@ package com.kulnois.notesapp.ui.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.kulnois.notesapp.model.Note
 import com.kulnois.notesapp.repository.NoteRepository
@@ -31,6 +32,12 @@ class NoteListViewModel (private val noteRepository: NoteRepository) : ViewModel
     private val _navigateToEditor = MutableLiveData<Boolean>()
     val navigateToEditor: LiveData<Boolean>
         get() = _navigateToEditor
+
+
+    val isEmpty: LiveData<Boolean> = Transformations.map(properties) {
+        it.isEmpty()
+    }
+
 
     fun navigateToEditor() {
         _navigateToEditor.value = true

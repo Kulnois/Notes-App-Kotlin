@@ -17,9 +17,9 @@
 
         <ImageView
             android:id="@+id/saveNoteBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/layout_margin_default"
             android:layout_marginEnd="@dimen/layout_margin_default"
             android:background="@drawable/button_editor"
             android:clickable="true"
@@ -31,10 +31,10 @@
 
         <ImageView
             android:id="@+id/navigationUp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="@dimen/layout_margin_default"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/layout_margin_default"
             android:background="@drawable/button_editor"
             android:clickable="true"
             android:focusable="true"
@@ -51,6 +51,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="@dimen/layout_margin_default"
             android:text="@{Long.toString(note.updatedAt)}"
+            app:setFormattedDateAdd="@{note.updatedAt}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/navigationUp"
             tools:text="@string/item_date_tools_text" />
@@ -76,6 +77,7 @@
             android:layout_marginTop="@dimen/layout_margin_default"
             android:layout_marginEnd="@dimen/layout_margin_default"
             android:layout_marginBottom="@dimen/layout_margin_default"
+            android:background="@drawable/edit_text_editor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,6 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@{note.content}"
+                android:lines="20"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dateText" />

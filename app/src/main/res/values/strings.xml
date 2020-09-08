@@ -9,4 +9,5 @@
     <string name="save">Guardar</string>
     <string name="content_description_save">Boton para guardar la nota</string>
     <string name="data_required">Por favor ingresar titulo y contenido</string>
+    <string name="list_message_notes">Las notas que agregues aparecerán aqui.</string>
 </resources>
