@@ -3,7 +3,6 @@ package com.kulnois.notesapp.ui.list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.kulnois.notesapp.repository.NoteRepository
-import com.kulnois.notesapp.ui.editor.NoteEditorViewModel
 
 /**
  * Created by @kulnois on 7/09/2020.

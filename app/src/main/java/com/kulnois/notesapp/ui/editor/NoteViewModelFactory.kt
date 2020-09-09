@@ -1,6 +1,5 @@
 package com.kulnois.notesapp.ui.editor
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.kulnois.notesapp.repository.NoteRepository

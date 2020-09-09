@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -20,8 +19,7 @@ import com.kulnois.notesapp.database.NoteDatabaseDao
 import com.kulnois.notesapp.databinding.FragmentNoteEditorBinding
 import com.kulnois.notesapp.model.Note
 import com.kulnois.notesapp.repository.NoteRepository
-import com.kulnois.notesapp.ui.list.NoteListViewModel
-import kotlinx.android.synthetic.main.fragment_note_editor.*
+import com.kulnois.notesapp.util.hideKeyboard
 
 /**
  * Created by @kulnois on 5/09/2020.

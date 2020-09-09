@@ -42,10 +42,10 @@ class NoteDatabaseTest {
     @Test
     @Throws(Exception::class)
     fun insetAndGetNote() {
-        val note = Note(0L, "Compras", "Tarjeta de regalo", 5000L)
+        val note = Note()
         noteDao.insert(note)
         val toNote = noteDao.getToNote()
-        assertEquals(toNote?.updatedAt, 5000L)
+        assertEquals(toNote?.updatedAt, -1L)
     }
 
 }

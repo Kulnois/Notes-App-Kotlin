@@ -1,9 +1,13 @@
 package com.kulnois.notesapp.util
 
+import android.content.Context
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.kulnois.notesapp.adapter.NoteAdapter
 import com.kulnois.notesapp.model.Note
@@ -37,4 +41,15 @@ fun TextView.setFormattedDateAdd(date: Long) {
 @BindingAdapter("isVisible")
 fun View.isVisible(bool: Boolean) {
     this.isVisible = bool
+}
+
+fun Context.hideKeyboard(view: View) {
+    val inputMethodManager = getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+fun Fragment.hideKeyboard() {
+    view?.let {
+        activity?.hideKeyboard(it)
+    }
 }

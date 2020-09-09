@@ -1,10 +1,12 @@
 package com.kulnois.notesapp.ui.list
 
 import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,6 +17,7 @@ import com.kulnois.notesapp.database.NoteDatabase
 import com.kulnois.notesapp.database.NoteDatabaseDao
 import com.kulnois.notesapp.databinding.FragmentListNoteBinding
 import com.kulnois.notesapp.repository.NoteRepository
+import com.kulnois.notesapp.util.hideKeyboard
 
 /**
  * Created by @kulnois on 5/09/2020.
@@ -77,6 +80,7 @@ class NoteListFragment : Fragment() {
                 this.findNavController().navigate(NoteListFragmentDirections
                     .actionNoteListFragmentToNoteEditorFragment(0L))
                 viewModel.navigateToEditorDone()
+                hideKeyboard()
             }
         })
 
@@ -85,8 +89,14 @@ class NoteListFragment : Fragment() {
                 this.findNavController().navigate(NoteListFragmentDirections
                     .actionNoteListFragmentToNoteEditorFragment(it))
                 viewModel.onNoteNavigated()
+                hideKeyboard()
             }
         })
+    }
+
+    private fun View.hideKeyboard() {
+        val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(windowToken, 0)
     }
 
 
